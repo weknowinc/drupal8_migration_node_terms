@@ -1,0 +1,10 @@
+name: "drupal8_migration_node_terms"
+type: module
+description: Migrate nodes with taxonomies from Drupal 8.
+core: 8.x
+package: Custom
+dependencies:
+  - migrate_plus
+  - migrate_tools
+  - migrate_drupal
+  - drupal8_migration_terms
