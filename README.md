@@ -9,13 +9,13 @@ Documentation:
 ## Filter by content type
 
 Currently this module migrates nodes from all content types in the legacy Drupal 8.
-If you want to migrate only one content type you have uncomment the 'node_type' option 
+If you want to migrate only one content type you have to uncomment the 'node_type' option 
 in migrate_plus.migration.migration_nodes.yml file and set the content type you want to migrate.
 
 ## Define tag field
 
 By default this module will migrate the **field_tags** field, but if you want to migrate another
-taxonomy field, you should make some changes in these files:
+taxonomy field, you should change the machine-name in these files:
 
 - src/Plugin/migrate/source/Node.php -> line 67.
 - config/install/migrate_plus.migration.migration_nodes.yml -> line 31.
