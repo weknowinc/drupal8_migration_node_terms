@@ -1,4 +1,4 @@
-id: migration_articles
+id: migration_nodes
 label: Migrate Article nodes and taxonomy terms from Drupal 8
 source:
   plugin: migration_d8_node

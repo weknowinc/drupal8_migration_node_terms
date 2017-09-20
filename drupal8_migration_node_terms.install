@@ -10,5 +10,5 @@
  */
 function drupal8_migration_node_terms_uninstall() {
   // Remove migration configs.
-  \Drupal::configFactory()->getEditable('migrate_plus.migration.migration_articles')->delete();
+  \Drupal::configFactory()->getEditable('migrate_plus.migration.migration_nodes')->delete();
 }

@@ -3,6 +3,24 @@
 Module to migrate Drupal 8 node terms to Drupal 8
 This module migrates article nodes.
 
+Documentation:
+-------------
+
+## Filter by content type
+
+Currently this module migrates nodes from all content types in the legacy Drupal 8.
+If you want to migrate only one content type you have uncomment the 'node_type' option 
+in migrate_plus.migration.migration_nodes.yml file and set the content type you want to migrate.
+
+## Define tag field
+
+By default this module will migrate the **field_tags** field, but if you want to migrate another
+taxonomy field, you should make some changes in these files:
+
+- src/Plugin/migrate/source/Node.php -> line 67.
+- config/install/migrate_plus.migration.migration_nodes.yml -> line 31.
+
+
 Instructions:
 -------------
 
@@ -37,7 +55,7 @@ Provide credentials to legacy Drupal 8 database, you will be prompted to specify
 
 You will be prompted to specify the Source site URL and the same information as above in the Setup command.
 
-`$ drupal migrate:execute migration_term_tags migration_articles`
+`$ drupal migrate:execute migration_term_tags migration_nodes`
 
 ![alt text][execute]
 
