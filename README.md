@@ -3,8 +3,7 @@
 Module to migrate Drupal 8 node terms to Drupal 8
 This module migrates article nodes.
 
-Documentation:
--------------
+# Documentation:
 
 ## Filter by content type
 
@@ -21,13 +20,21 @@ taxonomy field, you should change the machine-name in these files:
 - config/install/migrate_plus.migration.migration_nodes.yml -> line 31.
 
 
-Instructions:
--------------
+# Instructions:
 
 ## Install Drupal Console
 If you don't have it yet, follow the installation instructions [here](https://docs.drupalconsole.com/en/getting/project.html)
 
 ## Enable custom module.
+
+This command also will install the module dependencies:
+
+  - migrate_plus
+  - migrate_tools
+  - migrate_drupal
+  - drupal8_migration_terms(*)
+
+(*) This module migrates taxonomy terms from Drupal 8, you can download it [here.](https://github.com/weknowinc/drupal8_migration_terms)
 
 `$ drupal module:install drupal8_migration_node_terms`
 
