@@ -1,0 +1,48 @@
+id: migration_nodes
+label: Migrate Article nodes and taxonomy terms from Drupal 8
+source:
+  plugin: migration_d8_node
+  node_type: article
+process:
+  # If you are using this file to build a custom migration consider removing
+  # the nid and vid fields to allow incremental migrations.
+  # nid: tnid
+  # vid: vid
+  created: created
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  title: title
+  type:
+    plugin: default_value
+    default_value: article
+  uid:
+    plugin: default_value
+    default_value: 1
+  status: status
+  sticky: sticky
+  field_domain_access:
+    plugin: default_value
+    default_value: jmolivas_weknowinc_com
+  'body/value': body_value
+  'body/format':
+    plugin: default_value
+    default_value: full_html
+  field_tags:
+    plugin: iterator
+    source: field_tags
+    process:
+      target_id:
+        -
+          plugin: migration_lookup
+          migration: migration_term_tags
+          no_stub: true
+          source: field_tags_target_id
+destination:
+  plugin: entity:node
+migration_dependencies:
+  required:
+    - migration_term_tags
+dependencies:
+  modules:
+    - drupal8_migration_terms
